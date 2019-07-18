@@ -19,22 +19,19 @@
 -- closer to being N+1 years old.
 --
 
-local o = {
-  startDate = os.time()
-}
+local o = {}
 
-local setBirthdate = function(dts)
+local parseBirthdate = function(dts)
   local pattern = "(%d+)-(%d+)-(%d+)"
   local year, month, day = dts:match(pattern)
   local time = os.time({day=day, month=month, year=year})
-  o.startDate = time
+  return time
 end
 
-setBirthdate("1988-08-07")
-
-o.reflect = function()
+o.reflect = function(startDate)
+  local startDate = parseBirthdate(startDate)
   local currentTime = os.time()
-  local difference = os.difftime(currentTime, o.startDate)
+  local difference = os.difftime(currentTime, startDate)
   local years = difference / (365 * 24 * 60 * 60)
   local formatted = string.format("%.2f", years)
   return formatted

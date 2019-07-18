@@ -1,12 +1,12 @@
-function MementoMoriBirthDate(db)
-endfunction
+if exists('g:memento_mori_loaded')
+  finish
+endif
+let g:memento_mori_loaded = 1
+
+if !exists('g:memento_mori_birthdate')
+ let g:memento_mori_birthdate = '1970-01-01'
+endif
 
 function MementoMori()
-  return luaeval('require("memento-mori").reflect()')
+  return luaeval('require("memento-mori").reflect(_A)', g:memento_mori_birthdate)
 endfunction
-
-" command! -nargs=0 MementoMori luaeval 'require(\'memento-mori\').reflect()'
-"
-call MementoMoriBirthDate('2010-01-01')
-
-let g:airline_section_y = '%-0.5{MementoMori()}'
