@@ -32,7 +32,7 @@ end
 
 setBirthdate("1988-08-07")
 
-local currentAge = function()
+o.reflect = function()
   local currentTime = os.time()
   local difference = os.difftime(currentTime, o.startDate)
   local years = difference / (365 * 24 * 60 * 60)
@@ -40,4 +40,4 @@ local currentAge = function()
   return formatted
 end
 
-print(currentAge())
+return o
