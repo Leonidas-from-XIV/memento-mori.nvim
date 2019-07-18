@@ -1,7 +1,7 @@
 --- memento-mori.nvim --- Reminder of mortality
 --
 -- Author: Marek Kubica <marek@xivilization.net>
--- URL: https://github.com/Leonidas/emacs-memento.nvim
+-- URL: https://github.com/Leonidas/memento-mori.nvim
 -- Version: 0.1.0
 -- Package-Requires: neovim
 --
