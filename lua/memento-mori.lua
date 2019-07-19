@@ -32,7 +32,7 @@ o.reflect = function(startDate)
   local startDate = parseBirthdate(startDate)
   local currentTime = os.time()
   local difference = os.difftime(currentTime, startDate)
-  local years = difference / (365 * 24 * 60 * 60)
+  local years = difference / (365.2425 * 24 * 60 * 60)
   local formatted = string.format("%.2f", years)
   return formatted
 end
