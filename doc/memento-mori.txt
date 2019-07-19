@@ -1,0 +1,94 @@
+*memento-mori.txt* Reminder of mortality
+
+ ___  ___                          _         ___  ___           _  ~
+ |  \/  |                         | |        |  \/  |          (_) ~
+ | .  . | ___ _ __ ___   ___ _ __ | |_ ___   | .  . | ___  _ __ _  ~
+ | |\/| |/ _ \ '_ ` _ \ / _ \ '_ \| __/ _ \  | |\/| |/ _ \| '__| | ~
+ | |  | |  __/ | | | | |  __/ | | | || (_) | | |  | | (_) | |  | | ~
+ \_|  |_/\___|_| |_| |_|\___|_| |_|\__\___/  \_|  |_/\___/|_|  |_| ~
+
+
+====================================================================
+CONTENTS                                       *MementoMoriContents*
+
+    1. Usage ................ |MementoMoriUsage|
+    2. Configuration ........ |MementoMoriConfiguration|
+    3. License .............. |MementoMoriLicense|
+    4. Contributing ......... |MementoMoriContributing|
+    5. Credits .............. |MementoMoriCredits|
+
+====================================================================
+Section 1: Usage                                  *MementoMoriUsage*
+
+This plugin calculates your current age and can display it wherever
+you want to display it.
+
+You can get the current value by calling the MementoMori function: >
+
+    :echo MementoMori()
+
+This will display your current age (provided you have configured it,
+correctly, otherwise it will display Unix' age) in the bottom line of
+the editor.
+
+You can use the function in wherever place you like to display it.
+
+====================================================================
+Section 2: Configuration                  *MementoMoriConfiguration*
+
+The most important configuration option is to set your birthday,
+since the plugin has no way of determining this on its own.
+
+For this you need to set a global variable in your init.vim: >
+
+    let g:memento_mori_birthdate = '1988-08-07'
+
+The format is vaguely YYYY-MM-DD, but optionally setting the hour and
+minute and, again optionally the second is also possible, in a format
+that is roughly similar to ISO 8601: >
+
+    let g:memento_mori_birthdate = '1988-08-07T19:23'
+    let g:memento_mori_birthdate = '1988-08-07T19:23:42'
+
+If you do not set the birthdate it defaults to the Unix epoch, first
+of January, 1970.
+
+You can then use the return value of the function to display it in
+all kinds of places that are interesting to you.
+
+For users of vim-airline, it can be displayed in the statusline on
+the right: >
+
+    let g:airline_section_y = '%-0.5{MementoMori()}'
+
+Therefore you always have your current age in sight.
+
+====================================================================
+Section 3: License                              *MementoMoriLicense*
+
+The code is licensed under the Apache 2 license, see the LICENSE file
+for details.
+
+====================================================================
+Section 4: Contributing                    *MementoMoriContributing*
+
+The code is available on GitHub, pull requests improving the code or
+the functionality are welcome!
+
+GitHub: https://github.com/Leonidas-from-XIV/memento-mori.nvim
+
+====================================================================
+Section 5: Credits                              *MementoMoriCredits*
+
+First of all the main credit goes to Lassi Kortela who wrote this
+functionality as plugin for Emacs. His comment about the squandering
+less of my time on earth really resonated with me. Which is why I
+squandered even more time writing this plugin and the documentation.
+
+Another shout-out goes to the NeoVim team who included Lua as a
+default language in the editor so its existence is always a given. I
+don't particularly enjoy Lua but compared to VimL it is at least
+vaguely acceptable.
+
+More credits go to my friends who ranted about how terrible the
+initial implementation was so I made it a bit better.
