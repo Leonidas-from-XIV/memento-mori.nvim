@@ -24,9 +24,20 @@ local o = {}
 local parseBirthdate = function(dts)
   assert(dts ~= nil)
   assert(type(dts) == "string")
-  local pattern = "(%d+)-(%d+)-(%d+)"
-  local year, month, day = dts:match(pattern)
-  local time = os.time({day=day, month=month, year=year})
+  local datePattern = "(%d+)-(%d+)-(%d+)(.*)"
+  local year, month, day, rest = dts:match(datePattern)
+  local hour = nil
+  local minute = nil
+  local second = nil
+  if (rest ~= nil) then
+    local hmPattern = "T(%d+):(%d+)(.*)"
+    hour, minute, rest = rest:match(hmPattern)
+    if (rest ~= nil) then
+      local secPattern = ":(%d+)"
+      second = rest:match(secPattern)
+    end
+  end
+  local time = os.time({day=day, month=month, year=year, hour=hour, min=minute, sec=second})
   return time
 end
 
