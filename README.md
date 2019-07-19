@@ -3,6 +3,8 @@ Memento Mori for Neovim
 
 Displays your age in your editor. Inspired by [emacs-memento-mori][].
 
+![Screenshot](/screenshot.png?raw=true "Screenshot")
+
 Installation
 ------------
 
