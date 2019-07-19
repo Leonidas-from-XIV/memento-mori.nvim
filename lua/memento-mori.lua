@@ -23,7 +23,7 @@ local o = {}
 
 local parseBirthdate = function(dts)
   assert(dts ~= nil)
-  assert(type(dts) == "string")
+  local dts = tostring(dts)
   local datePattern = "(%d+)-(%d+)-(%d+)(.*)"
   local year, month, day, rest = dts:match(datePattern)
   local hour = nil
