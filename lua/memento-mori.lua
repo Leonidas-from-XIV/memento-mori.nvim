@@ -50,4 +50,9 @@ o.reflect = function(startDate)
   return formatted
 end
 
+o.memento_mori = function()
+  local startDate = vim.g.memento_mori_birthdate
+  return o.reflect(startDate)
+end
+
 return o
